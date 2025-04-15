@@ -1,4 +1,6 @@
 // Load blog dari JSON
+
+<body onloaD="alert('HALOOOO')">
 document.addEventListener("DOMContentLoaded", () => {
     const blogContainer = document.getElementById("blog-container");
   
