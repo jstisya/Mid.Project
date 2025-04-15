@@ -43,23 +43,18 @@ document.addEventListener("DOMContentLoaded", () => {
   // Lightbox Functionality
 document.addEventListener("DOMContentLoaded", () => {
     const lightbox = document.getElementById("lightbox");
-    const lightboxImg = document.getElementById("lightbox-img");
-    const closeBtn = document.querySelector(".close");
+    const lightboxImg = lightbox.querySelector("img");
+    const galleryItems = document.querySelectorAll(".gallery-item");
   
-    document.querySelectorAll(".lightbox-img").forEach((img) => {
-      img.addEventListener("click", () => {
-        lightbox.style.display = "block";
-        lightboxImg.src = img.src;
-      });
-    });
-  
-    closeBtn.addEventListener("click", () => {
-      lightbox.style.display = "none";
-    });
-  
-    window.addEventListener("click", (e) => {
-      if (e.target === lightbox) {
-        lightbox.style.display = "none";
-      }
+    galleryItems.forEach(img => {
+    img.addEventListener("click", () => {
+      lightbox.style.display = "flex";
+      lightboxImg.src = img.src;
+      lightboxImg.alt = img.alt;
     });
   });
+
+  lightbox.addEventListener("click", () => {
+    lightbox.style.display = "none";
+  });
+});
